@@ -1,6 +1,6 @@
 import csrfFetch from "./csrf.js";
 
-const SET_CURRENT_USER = 'session/setCurrentUser';
+export const SET_CURRENT_USER = 'session/setCurrentUser';
 const REMOVE_CURRENT_USER = 'session/removeCurrentUser';
 
 const setCurrentUser = (user) => ({
@@ -66,14 +66,15 @@ export const logout = () => async (dispatch) => {
   return response;
 };
 
+const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
 const initialState = { 
-  user: JSON.parse(sessionStorage.getItem("currentUser"))
+  currentUserId: currentUser?.id 
 };
 
 const sessionReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_CURRENT_USER:
-      return { ...state, user: action.payload };
+      return { ...state, currentUserId: action.payload?.id };
     case REMOVE_CURRENT_USER:
       return { ...state, user: null };
     default:
