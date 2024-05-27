@@ -76,7 +76,7 @@ const sessionReducer = (state = initialState, action) => {
     case SET_CURRENT_USER:
       return { ...state, currentUserId: action.payload?.id };
     case REMOVE_CURRENT_USER:
-      return { ...state, user: null };
+      return { ...state, currentUserId: null };
     default:
       return state;
   }
