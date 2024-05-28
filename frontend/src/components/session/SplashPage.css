@@ -1,0 +1,65 @@
+body {
+    background-color: white;
+}
+
+.main-container {
+    width: 600px;
+    margin-left: 20px;
+}
+
+.sign-in-container {
+    width: 500px;
+}
+.home-page-heading {
+    color: #b24020;
+    font-size: 54px;
+}
+
+.sign-in-container label {
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(81, 75, 75);
+    padding-bottom: 10px;
+}
+
+.sign-in-container .input-field {
+    height: 45px;
+    border: 1px solid black;
+    margin-bottom: 20px;
+}
+
+.sign-in-container .sign-in-button {
+    border-radius: 31px;
+    padding: 15px 0px;
+    background-color: #0a66c2;
+}
+
+.sign-in-container .sign-in-button:hover {
+    background-color: #004182;
+}
+
+.sign-in-container .join-now {
+    border: 1px solid black;
+    border-radius: 31px;
+    padding: 15px 0px;
+    font-size: 1.4rem;
+}
+
+.sign-in-container .join-now:hover{
+    background-color: lightgray;
+}
+
+.sign-in-container .join-now a{
+    color: rgb(81, 75, 75);
+    font-weight: normal;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 767px) {
+    .home-page-heading {
+        font-size: 32px;
+        font-weight: 300;
+    }
+}
+
+

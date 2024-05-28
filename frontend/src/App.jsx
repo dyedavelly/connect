@@ -5,6 +5,7 @@ import LoginForm from './components/session/LoginForm';
 import * as sessionActions from './store/session';
 import SignupForm from './components/session/SignupForm';
 import Navigation from './components/Navigation/Navigation';
+import SplashPage from './components/session/SplashPage';
 
 function Layout() {
   const dispatch = useDispatch();
@@ -30,6 +31,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
+        element: <SplashPage />
       },
       {
         path: '/login',
