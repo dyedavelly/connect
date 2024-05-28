@@ -1,21 +1,24 @@
 body {
     font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
-    margin: 0;
     background-color: white;
     font-size: 1.6rem;
 }
 
 .container {
+    margin: auto;
     width: 100%;
     max-width: 400px;
     padding: 20px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     background-color: white;
     border-radius: 8px;
+}
+
+.signin-box {
+    display: flex;
+    flex-direction: column;
+    height: 450px;
 }
 
 h2 {

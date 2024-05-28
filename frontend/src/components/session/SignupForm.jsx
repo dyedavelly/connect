@@ -33,7 +33,7 @@ function SignupForm() {
 
   return (
     <>
-     <p>Make the most your professional life</p>
+     <p className="main-title">Make the most your professional life</p>
       <div className="container">
       <div className="signup-box">
         <form onSubmit={handleSubmit}>
