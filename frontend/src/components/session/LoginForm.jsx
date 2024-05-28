@@ -43,14 +43,11 @@ function LoginForm() {
           </ul>
           <input type="text" placeholder="Email" className="input-field" value={email} onChange={(e) => setEmail(e.target.value)} required/>
           <input type="password" placeholder="Password" className="input-field" value={password} onChange={(e) => setPassword(e.target.value)} required/>
-          <button type="submit" class="sign-in-button">Sign in</button>
+          <button type="submit" className="sign-in-button">Sign in</button>
         </form>
-        <p className="terms">
-                  By clicking Continue, you agree to connect’s <a href="#">User Agreement</a>, <a href="#">Privacy Policy</a>, and <a href="#">Cookie Policy</a>.
-        </p>
-        <p className="join-now">New to connect? <Link to={"/signup"}>Join now</Link></p>
       </div>
     </div> 
+    <p className="join-now">New to connect? <Link to={"/signup"}>Join now</Link></p>
     </>
   );
 }

@@ -6,6 +6,7 @@ body {
     height: 100vh;
     margin: 0;
     background-color: white;
+    font-size: 1.6rem;
 }
 
 .container {
@@ -17,12 +18,7 @@ body {
     border-radius: 8px;
 }
 
-.signin-box {
-    text-align: center;
-}
-
 h2 {
-    font-size: 24px;
     margin-bottom: 10px;
 }
 
@@ -37,6 +33,7 @@ form {
 }
 
 .input-field {
+    font-size: 1.4rem;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
@@ -44,6 +41,7 @@ form {
 }
 
 .sign-in-button {
+    font-size: 1.4rem;
     background-color: #0073b1;
     color: white;
     padding: 10px;
@@ -56,22 +54,8 @@ form {
     background-color: #005f8d;
 }
 
-.terms {
-    font-size: 12px;
-    color: #5e5e5e;
-    margin-top: 20px;
-}
-
-.terms a {
-    color: #0073b1;
-    text-decoration: none;
-}
-
-.terms a:hover {
-    text-decoration: underline;
-}
-
 .join-now {
+    text-align: center;
     margin-top: 20px;
 }
 

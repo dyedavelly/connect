@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Navigate } from 'react-router-dom';
+import { Navigate, Link } from 'react-router-dom';
 import * as sessionActions from '../../store/session';
 import './SignupForm.css';
 
@@ -33,31 +33,26 @@ function SignupForm() {
 
   return (
     <>
-      <h1>Sign Up</h1>
-      <form onSubmit={handleSubmit}>
-        <ul>
-          {errors.map(error => <li key={error}>{error}</li>)}
-        </ul>
-        <label>
-          Email
-          <input
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Password
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </label>
-        <button type="submit">Sign Up</button>
-      </form>
+     <p>Make the most your professional life</p>
+      <div className="container">
+      <div className="signup-box">
+        <form onSubmit={handleSubmit}>
+          <ul className="errors">
+            {errors.map(error => <li key={error}>{error}</li>)}
+          </ul>
+          <label>Email</label>
+          <input type="text" className="input-field" value={email} onChange={(e) => setEmail(e.target.value)} required/>
+          <label>Password (6+ characters) </label>
+          <input type="password" className="input-field" value={password} onChange={(e) => setPassword(e.target.value)} required/>
+          <p className="terms">
+                  By clicking Continue, you agree to connect’s <a href="#">User Agreement</a>, <a href="#">Privacy Policy</a>, and <a href="#">Cookie Policy</a>.
+          </p>
+          <button type="submit" className="sign-up-button">Agree & Join</button>
+        </form>
+        <p className="sign-in">Already on connect? <Link to={"/login"}>Sign in</Link></p>
+      </div>
+    </div> 
+    
     </>
   );
 }
