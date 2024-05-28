@@ -31,6 +31,12 @@ function LoginForm() {
       });
   }
 
+  const handleClick = (e) => {
+    const email = 'demo@user.com';
+    const password = 'password';
+    return dispatch(sessionActions.login({email, password }))
+  };
+
   return (
     <>
     <div className="container">
@@ -48,6 +54,7 @@ function LoginForm() {
       </div>
     </div> 
     <p className="join-now">New to connect? <Link to={"/signup"}>Join now</Link></p>
+    <p onClick={handleClick}  className="join-now"><a>Login as Demo User</a></p>
     </>
   );
 }

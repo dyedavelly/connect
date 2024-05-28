@@ -30,6 +30,12 @@ function SplashPage() {
         else setErrors([res.statusText]);
       });
   }
+  
+  const handleClick = (e) => {
+    const email = 'demo@user.com';
+    const password = 'password';
+    return dispatch(sessionActions.login({email, password }))
+  };
 
   return (
     <>
@@ -47,6 +53,7 @@ function SplashPage() {
           <button type="submit" className="sign-in-button">Sign in</button>
         </form>
         <p className="join-now"><Link to={"/signup"}>New to connect? Join now</Link></p>
+        <button onClick={handleClick} className="demo-login-button">Login as Demo User</button>
       </div>
     </div> 
     
