@@ -1,0 +1,42 @@
+.main-logo {
+    padding-left: 20px;
+    height: 50px;
+    width: 50px;
+}
+
+.header-links {
+    padding-right: 20px;
+    font-size: 20px;
+    list-style: none;
+}
+
+.header-links .nav-links {
+    text-decoration: none;
+    font-weight: bold;
+    padding: 12px 24px;
+    border-radius: 24px;
+}
+
+.header {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+.nav-links.primary {
+    color: black;
+    
+}
+
+.nav-links.primary:hover{
+    background-color: lightgray;
+   
+}
+
+.nav-links.secondary {
+    color: #0073b1;
+    border: 1px solid #0073b1;
+}
+
+.nav-links.secondary:hover {
+    background-color: aliceblue;
+}

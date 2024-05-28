@@ -1,24 +1,30 @@
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
+import './Navigation.css';
 
 
 function Navigation() {
   const sessionUser = useSelector(state => state.session.currentUserId);
 
   const sessionLinks = sessionUser ? (
-    <li>
+    <div className="header-links">
     <ProfileButton user={sessionUser} />
-    </li>
-  ) : null;
+    </div>
+  ) : (
+    <div className="header-links">
+        <NavLink className="nav-links primary" to="/signup">Join now</NavLink>
+        <NavLink className="nav-links secondary" to="/login">Sign in</NavLink>
+    </div>
+  );
 
   return (
-     <ul>
+     <div className='header'>
        <NavLink to="/">
-         <img src="" alt="logo" />
+         <img className="main-logo" src="/connect-logo.png" alt="logo" />
        </NavLink>
       {sessionLinks}
-     </ul>
+     </div>
   );
 }
 
