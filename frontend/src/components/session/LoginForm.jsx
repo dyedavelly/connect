@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
-import { Navigate } from 'react-router-dom';
+import { Navigate, Link } from 'react-router-dom';
 import './LoginForm.css';
 
 function LoginForm() {
@@ -33,32 +33,23 @@ function LoginForm() {
 
   return (
     <>
-    <div className="login-container">
-    <h1>Sign In</h1>
-      <form onSubmit={handleSubmit}>
-        <ul>
-          {errors.map(error => <li key={error}>{error}</li>)}
-        </ul>
-        <label>
-          Email
-          <input
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Password
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </label>
-        <button type="submit">Log In</button>
-      </form>
+    <div className="container">
+      <div className="signin-box">
+        <h2>Sign In</h2>
+        <p>Stay updated on your professional world</p>
+        <form onSubmit={handleSubmit}>
+          <ul>
+            {errors.map(error => <li key={error}>{error}</li>)}
+          </ul>
+          <input type="text" placeholder="Email" className="input-field" value={email} onChange={(e) => setEmail(e.target.value)} required/>
+          <input type="password" placeholder="Password" className="input-field" value={password} onChange={(e) => setPassword(e.target.value)} required/>
+          <button type="submit" class="sign-in-button">Sign in</button>
+        </form>
+        <p className="terms">
+                  By clicking Continue, you agree to connect’s <a href="#">User Agreement</a>, <a href="#">Privacy Policy</a>, and <a href="#">Cookie Policy</a>.
+        </p>
+        <p className="join-now">New to connect? <Link to={"/signup"}>Join now</Link></p>
+      </div>
     </div> 
     </>
   );

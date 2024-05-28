@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 
 
@@ -10,24 +10,15 @@ function Navigation() {
     <li>
     <ProfileButton user={sessionUser} />
     </li>
-  ) : (
-    <>
-      <li>
-        <NavLink to="/login">Log In</NavLink>
-      </li>
-      <li>
-        <NavLink to="/signup">Sign Up</NavLink>
-      </li>
-    </>
-  );
+  ) : null;
 
   return (
-    <ul>
-      <li>
-        <NavLink to="/">Home</NavLink>
-      </li>
+     <ul>
+       <NavLink to="/">
+         <img src="" alt="logo" />
+       </NavLink>
       {sessionLinks}
-    </ul>
+     </ul>
   );
 }
 
