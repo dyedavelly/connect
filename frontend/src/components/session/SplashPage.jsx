@@ -31,7 +31,7 @@ function SplashPage() {
       });
   }
   
-  const handleClick = (e) => {
+  const handleClick = () => {
     const email = 'demo@user.com';
     const password = 'password';
     return dispatch(sessionActions.login({email, password }))
