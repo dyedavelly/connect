@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate, Link } from 'react-router-dom';
 import * as sessionActions from '../../store/session';
-import './SignupForm.css';
+import './SignupForm.scss';
 
 function SignupForm() {
   const dispatch = useDispatch();
