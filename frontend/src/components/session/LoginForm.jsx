@@ -44,7 +44,7 @@ function LoginForm() {
         <h2>Sign In</h2>
         <p>Stay updated on your professional world</p>
         <form onSubmit={handleSubmit}>
-          <ul>
+          <ul className='errors'>
             {errors.map(error => <li key={error}>{error}</li>)}
           </ul>
           <input type="text" placeholder="Email" className="input-field" value={email} onChange={(e) => setEmail(e.target.value)} required/>
