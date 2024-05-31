@@ -16,6 +16,10 @@ class User < ApplicationRecord
     validates :session_token, presence: true, uniqueness: true
     validates :password, length: {in: 6..40}, allow_nil: true
 
+    has_many :posts,
+        primary_key: :id,
+        foreign_key: :author_id,
+        class_name: :Post
 
     def self.find_by_credentials(email, password)
         user = User.find_by(email: email)
