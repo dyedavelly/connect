@@ -18,8 +18,10 @@ function Navigation() {
     </div>
   );
 
+  const headerClass = sessionUser ? 'header logged-in' : 'header logged-out';
+  
   return (
-     <div className='header'>
+     <div className={headerClass}>
        <NavLink to="/">
          <img className="main-logo" src="/connect-logo.png" alt="logo" />
        </NavLink>

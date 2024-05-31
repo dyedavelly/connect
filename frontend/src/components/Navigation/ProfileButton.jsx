@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { FaUserCircle } from 'react-icons/fa';
 import * as sessionActions from '../../store/session';
+import './ProfileButton.scss'
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -34,8 +35,8 @@ function ProfileButton({ user }) {
 
 
   return (
-    <div>
-      <button onClick={toggleMenu}>
+    <div className='profile-button-container'>
+      <button onClick={toggleMenu} className='profile-button'>
         <FaUserCircle />
       </button>
       {showMenu && (
