@@ -1,12 +1,12 @@
 
 .post-container {
+    font-family: sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 20px;
 
     .post-button {
-        font-family: var(--artdeco-reset-typography-font-family-sans);
         width: 500px;
         height: 60px;
         border-radius: 35px;
@@ -21,6 +21,65 @@
 
     .post-button:hover {
         background-color: #f3f3f3;
-    }
-    
+    }  
 }
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .modal {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        width: 700px;
+        max-width: 80%;
+        height: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+
+        .close-button {
+            background: transparent;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            
+        }
+        textarea {
+            font-family: sans-serif;
+            font-size: 18px;
+            width: 99%;
+            height: 80%;
+            max-height: 80%;
+            border: none;
+        }
+        textarea:focus {
+            outline: none;
+        }
+        .post-submit-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #0073b1;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .post-submit-button:hover {
+            background-color: #005f8d;
+        }
+    }
+}
+
+
+

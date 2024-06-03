@@ -1,24 +1,33 @@
-// import { useDispatch, useSelector } from 'react-redux';
-// import { useEffect } from 'react';
-// import { useParams } from 'react-router-dom';
-// import * as postActions from '../../store/posts';
+import React, { useState } from 'react';
 import './PostForm.scss';
 
-
-
 function PostForm() {
-    // const dispatch = useDispatch();
-    // const { postId } = useParams();
-    // const post = useSelector(postActions.selectPost(postId));
-    //const [body, setBody] = useState(postId ? post.body : '');
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
-    return(
+    const openModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+    };
+
+    return (
         <>
-        <div className="post-container">
-          <button className="post-button">Start a post</button>
-        </div>
+            <div className="post-container">
+                <button className="post-button" onClick={openModal}>Start a post</button>
+            </div>
+            {isModalOpen && (
+                <div className="modal-overlay">
+                    <div className="modal">
+                        <button className="close-button" onClick={closeModal}>X</button>
+                        <textarea placeholder="what do you want to talk about?"></textarea>
+                        <button className="post-submit-button">Post</button>
+                    </div>
+                </div>
+            )}
         </>
-    )
+    );
 }
 
 export default PostForm;
