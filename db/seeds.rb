@@ -55,6 +55,18 @@ ApplicationRecord.transaction do
       body: 'I am happy to share my new role at Microsoft',
       author_id: 2,
     })
+    Post.create!({
+      body: 'Tesla Layoff story',
+      author_id: 4,
+    })
+    Post.create!({
+      body: 'Happy to announce my new certification',
+      author_id: 5,
+    })
+    Post.create!({
+      body: 'test',
+      author_id: 5,
+    })
 
     puts "Done!"
   end

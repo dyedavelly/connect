@@ -1,0 +1,26 @@
+
+.post-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+
+    .post-button {
+        font-family: var(--artdeco-reset-typography-font-family-sans);
+        width: 500px;
+        height: 60px;
+        border-radius: 35px;
+        border: 1px solid lightgray;
+        background-color: white;
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-align: left;
+        padding-left: 15px;
+        color: darkslategray;   
+    }
+
+    .post-button:hover {
+        background-color: #f3f3f3;
+    }
+    
+}

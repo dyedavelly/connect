@@ -6,6 +6,8 @@ import * as sessionActions from './store/session';
 import SignupForm from './components/session/SignupForm';
 import Navigation from './components/Navigation/Navigation';
 import SplashPage from './components/session/SplashPage';
+import PostsIndex from './components/posts/PostsIndex';
+import PostForm from './components/posts/Postform';
 
 function Layout() {
   const dispatch = useDispatch();
@@ -41,6 +43,10 @@ const router = createBrowserRouter([
         path: '/signup',
         element: <SignupForm />
       },
+      {
+        path: '/feed',
+        element: <PostForm />
+      }
     ]
   }
 ]);

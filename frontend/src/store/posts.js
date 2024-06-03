@@ -1,6 +1,9 @@
 import csrfFetch from "./csrf.js";
 
 export const GET_POSTS = 'posts/GET_POSTS';
+export const GET_POST = 'posts/GET_POST';
+export const REMOVE_POST = 'posts/REMOVE_POST';
+
 
 // Action Creators
 const getPosts = (posts) => ({
@@ -8,7 +11,19 @@ const getPosts = (posts) => ({
     posts
 });
 
+const getPost = (post) => ({
+    type: GET_POST,
+    post
+});
+
+const removePost = (postId) => ({
+    type: REMOVE_POST,
+    postId
+});
+
+
 export const selectPostsArray = (state) => { return Object.values(state.posts || {}) }
+export const selectPost = (postId) => (state) => { return state.posts[postId] || null }
 
 export const fetchPosts = () => async (dispatch) => {
     const response = await csrfFetch('/api/posts');
@@ -23,10 +38,60 @@ export const fetchPosts = () => async (dispatch) => {
     }
 }
 
+export const createPost = (post) => async (dispatch) => {
+    const response = await csrfFetch('/api/posts', { 
+        method: 'POST',
+        body: JSON.stringify(post) ,
+        headers: {
+            'Content-Type': 'application/json'
+        } 
+    } );
+
+    if(response.ok){
+        const data = await response.json();
+        dispatch(getPost(data));
+        return data;
+    }
+}
+
+export const updatePost = (post) => async (dispatch) => {
+    const response = await csrfFetch(`/api/posts/${post.id}`, { 
+        method: 'PATCH',
+        body: JSON.stringify(post) ,
+        headers: {
+            'Content-Type': 'application/json'
+        } 
+    } );
+
+    if(response.ok){
+        const data = await response.json();
+        dispatch(getPost(data));
+    }
+}
+
+export const deletePost = (postId) => async (dispatch) => {
+    const response = await csrfFetch(`/api/posts/${postId}`, { 
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        } 
+    } );
+
+    if(response.ok){
+        dispatch(removePost(postId));
+        return postId;
+    }
+}
+
+
 const postsReducer = (state = {}, action) => {
+    const nextState = {...state};
     switch (action.type) {
         case GET_POSTS:
             return { ...state, ...action.posts};
+        case REMOVE_POST:
+            delete nextState[action.posts.id];
+            return nextState;
         default:
             return state;
     }

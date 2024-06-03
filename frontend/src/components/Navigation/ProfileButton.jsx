@@ -1,14 +1,15 @@
 import { useState, useEffect, useRef } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import { FaUserCircle } from 'react-icons/fa';
 import * as sessionActions from '../../store/session';
-import './ProfileButton.scss'
+import './ProfileButton.scss';
 
-function ProfileButton({ user }) {
+
+function ProfileButton() {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const dropdownRef = useRef(null);
-
+  
   const logout = (e) => {
     e.preventDefault();
     dispatch(sessionActions.logout());
