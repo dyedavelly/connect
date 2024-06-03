@@ -2,10 +2,12 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.scss';
+import { Navigate } from 'react-router-dom';
 
 
 function Navigation() {
   const sessionUser = useSelector(state => state.session.currentUserId);
+  if (!sessionUser) return <Navigate to="/" replace={true} />;
 
   const sessionLinks = sessionUser ? (
     <div className="header-links">

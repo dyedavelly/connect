@@ -6,9 +6,9 @@ export const REMOVE_POST = 'posts/REMOVE_POST';
 
 
 // Action Creators
-const getPosts = (posts) => ({
+const getPosts = (payload) => ({
     type: GET_POSTS,
-    posts
+    payload
 });
 
 const getPost = (post) => ({
@@ -23,6 +23,7 @@ const removePost = (postId) => ({
 
 
 export const selectPostsArray = (state) => { return Object.values(state.posts || {}) }
+
 export const selectPost = (postId) => (state) => { return state.posts[postId] || null }
 
 export const fetchPosts = () => async (dispatch) => {
@@ -88,9 +89,9 @@ const postsReducer = (state = {}, action) => {
     const nextState = {...state};
     switch (action.type) {
         case GET_POSTS:
-            return { ...state, ...action.posts};
+            return { ...state, ...action.payload.posts};
         case REMOVE_POST:
-            delete nextState[action.posts.id];
+            delete nextState[action.postId];
             return nextState;
         default:
             return state;

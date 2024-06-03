@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './PostForm.scss';
+import PostsIndex from './PostsIndex';
 
 function PostForm() {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -15,7 +16,10 @@ function PostForm() {
     return (
         <>
             <div className="post-container">
-                <button className="post-button" onClick={openModal}>Start a post</button>
+                <div className="post-box">
+                   <button className="post-button" onClick={openModal}>Start a post</button>
+                </div>
+                <PostsIndex/>
             </div>
             {isModalOpen && (
                 <div className="modal-overlay">

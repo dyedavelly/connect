@@ -1,5 +1,7 @@
 import { SET_CURRENT_USER } from './session.js';
+import { GET_POSTS } from './posts.js';
 
+export const selectUsersArray = (state) => { return Object.values(state.users || {}) }
 
 const usersReducer = (state = {}, action) => {
     switch (action.type) {
@@ -9,6 +11,8 @@ const usersReducer = (state = {}, action) => {
         } else {
           return {};
         }
+      case GET_POSTS:
+         return { ...state, ...action.payload.users}
       default:
         return state;
     }

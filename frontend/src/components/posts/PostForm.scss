@@ -2,26 +2,36 @@
 .post-container {
     font-family: sans-serif;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     margin-top: 20px;
 
-    .post-button {
-        width: 500px;
-        height: 60px;
-        border-radius: 35px;
-        border: 1px solid lightgray;
-        background-color: white;
-        font-size: 1.2rem;
-        font-weight: 600;
-        text-align: left;
-        padding-left: 15px;
-        color: darkslategray;   
-    }
+    .post-box {
+         border: 1px solid lightgray;
+         width: 750px;
+         height: 150px;
+         border-radius: 15px;
 
-    .post-button:hover {
-        background-color: #f3f3f3;
-    }  
+        .post-button {
+            margin-top: 20px;
+            margin-left: 70px;
+            width: 600px;
+            height: 60px;
+            border-radius: 35px;
+            border: 1px solid lightslategray;
+            background-color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: left;
+            padding-left: 15px;
+            color: darkslategray;   
+        }
+    
+        .post-button:hover {
+            background-color: #f3f3f3;
+        }  
+
+    }   
 }
 
 .modal-overlay {
