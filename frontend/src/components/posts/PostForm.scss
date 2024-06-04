@@ -21,6 +21,7 @@
             border: none;
             background-color: white;
             font-size: 25px;
+            margin: 9px;
         }
 
         .post-dropdown {
@@ -62,13 +63,18 @@
             padding-left: 15px;
             color: darkslategray;   
         }
+
+        .start-post-button:hover {
+            background-color: #f3f3f3;
+        }
     
         .post-button:hover {
             background-color: #f3f3f3;
         } 
 
         .post-name-and-menu {
-            margin: 10px;
+            margin-top: 10px;
+            margin-left: 20px;
             
             .author-name {
                font-size: 1.2rem; 
@@ -78,6 +84,7 @@
             .post-body {
                 font-size: 1.2rem;
                 margin-top: 10px;
+                padding-bottom: 15px;
             }
             
         }
@@ -117,7 +124,7 @@
         }
         textarea {
             font-family: sans-serif;
-            font-size: 18px;
+            font-size: 22px;
             width: 99%;
             height: 80%;
             max-height: 80%;
