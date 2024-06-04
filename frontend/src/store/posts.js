@@ -93,7 +93,6 @@ const postsReducer = (state = {}, action) => {
         case GET_POSTS:
             return { ...state, ...action.payload.posts};
         case GET_POST:
-            debugger
             return {...state, [action.post.post.id]: action.post.post}
         case REMOVE_POST:
             delete nextState[action.postId];
