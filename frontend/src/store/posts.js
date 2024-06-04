@@ -90,6 +90,8 @@ const postsReducer = (state = {}, action) => {
     switch (action.type) {
         case GET_POSTS:
             return { ...state, ...action.payload.posts};
+        case GET_POST:
+            return {...state, ...action.post}
         case REMOVE_POST:
             delete nextState[action.postId];
             return nextState;

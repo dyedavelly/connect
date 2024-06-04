@@ -43,7 +43,7 @@ function ProfileButton() {
       {showMenu && (
         <ul className="profile-dropdown" ref={dropdownRef}>
           <li>
-            <button onClick={logout}>Log Out</button>
+            <button onClick={logout}>Sign Out</button>
           </li>
         </ul>
       )}

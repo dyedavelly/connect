@@ -26,7 +26,7 @@ function PostForm() {
         <>
             <div className="post-container">
                 <div className="post-box">
-                   <button className="post-button" onClick={openModal}>Start a post</button>
+                   <button className="start-post-button" onClick={openModal}>Start a post</button>
                 </div>
                 <PostsIndex/>
             </div>
