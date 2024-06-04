@@ -7,7 +7,7 @@ import { Navigate } from 'react-router-dom';
 
 function Navigation() {
   const sessionUser = useSelector(state => state.session.currentUserId);
-  if (!sessionUser) return <Navigate to="/" replace={true} />;
+  //if (!sessionUser) return <Navigate to="/" replace={true} />;
 
   const sessionLinks = sessionUser ? (
     <div className="header-links">
@@ -23,13 +23,13 @@ function Navigation() {
   const headerClass = sessionUser ? 'header logged-in' : 'header logged-out';
   
   return (
-     <div className={headerClass}>
+    <div className={headerClass}>
        <NavLink to="/">
          <img className="main-logo" src="/connect-logo.png" alt="logo" />
        </NavLink>
       {sessionLinks}
      </div>
-  );
+    ); 
 }
 
 export default Navigation;

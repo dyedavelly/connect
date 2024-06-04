@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect, useRef } from 'react';
 import * as userActions from '../../store/users';
 import { FiMoreHorizontal } from "react-icons/fi";
-import * as postActions from '../../store/session';
+import * as postActions from '../../store/posts';
 
 
 function PostIndexItem({ post }){
@@ -18,8 +18,13 @@ function PostIndexItem({ post }){
         setShowMenu(!showMenu);
     };
 
+    const updatePost = () => {
+        
+    };
+
     const deletePost = () => {
-        dispatch(postActions.deletePost());
+        const id = post.id;
+        dispatch(postActions.deletePost(id));
     };
 
     useEffect(() => {
@@ -44,7 +49,7 @@ function PostIndexItem({ post }){
                 {showMenu && (
                 <ul className="post-dropdown" ref={dropdownRef}>
                 <li>
-                    <button>Edit</button>
+                    <button onclick={updatePost}>Edit</button>
                 </li>
                 <li>
                     <button onClick={deletePost}>Delete</button>
