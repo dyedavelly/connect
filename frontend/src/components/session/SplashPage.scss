@@ -3,10 +3,12 @@ body {
 }
 
 .main-container {
-    width: 600px;
-    margin-left: 20px;
+    display: flex; 
 }
 
+.home-container {
+    margin-left: 100px;
+}
 .sign-in-container {
     width: 500px;
 }
@@ -68,6 +70,7 @@ body {
 .sign-in-container .demo-login-button:hover{
     background-color: #f3f3f3;
 }
+
 
 @media screen and (max-width: 767px) {
     .home-page-heading {
