@@ -56,6 +56,8 @@ export const createPost = (post) => async (dispatch) => {
 }
 
 export const updatePost = (post) => async (dispatch) => {
+    console.log(post);
+    console.log(post.body);
     const response = await csrfFetch(`/api/posts/${post.id}`, { 
         method: 'PATCH',
         body: JSON.stringify(post) ,
@@ -91,7 +93,8 @@ const postsReducer = (state = {}, action) => {
         case GET_POSTS:
             return { ...state, ...action.payload.posts};
         case GET_POST:
-            return {...state, ...action.post}
+            debugger
+            return {...state, [action.post.post.id]: action.post.post}
         case REMOVE_POST:
             delete nextState[action.postId];
             return nextState;
