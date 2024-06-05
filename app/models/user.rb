@@ -17,6 +17,8 @@ class User < ApplicationRecord
     validates :password, length: {in: 6..40}, allow_nil: true
     validates :first_name, :last_name, presence: true
 
+    has_one_attached :photo
+
     has_many :posts,
         primary_key: :id,
         foreign_key: :author_id,

@@ -1,20 +1,22 @@
 import { useState, useEffect, useRef } from 'react';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { FaUserCircle } from 'react-icons/fa';
 import * as sessionActions from '../../store/session';
 import './ProfileButton.scss';
+import * as userActions from '../../store/users';
 
-
-function ProfileButton() {
+function ProfileButton(user) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const dropdownRef = useRef(null);
-  
+  const users = useSelector(userActions.selectUsersArray);
+  const logged_in_user = users.find(({ id }) => id === user.user);
+
   const logout = (e) => {
     e.preventDefault();
     dispatch(sessionActions.logout());
   };
-
+  
   const toggleMenu = (e) => {
     e.stopPropagation(); // Keep click from bubbling up to document and triggering closeMenu
     setShowMenu(!showMenu);
@@ -38,7 +40,11 @@ function ProfileButton() {
   return (
     <div className='profile-button-container'>
       <button onClick={toggleMenu} className='profile-button'>
-        <FaUserCircle />
+      {logged_in_user?.photoUrl ? (
+          <img className='profile-photo' src={logged_in_user.photoUrl} alt="Profile" />
+        ) : (
+          <FaUserCircle />
+        )}
       </button>
       {showMenu && (
         <ul className="profile-dropdown" ref={dropdownRef}>
