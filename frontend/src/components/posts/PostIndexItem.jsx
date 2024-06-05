@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import * as userActions from '../../store/users';
 import { FiMoreHorizontal } from "react-icons/fi";
 import * as postActions from '../../store/posts';
+import { FaUserCircle } from 'react-icons/fa';
 
 function PostIndexItem({ post }){
     const dispatch = useDispatch();
@@ -12,7 +13,7 @@ function PostIndexItem({ post }){
     const [body, setBody] = useState(post.body);
     const dropdownRef = useRef(null);
     const author = users.find(({ id }) => id === post.authorId);
-    const sessionUser = useSelector(state => state.session.currentUserId);
+    const sessionUser = useSelector(state => state.session.currentUserId); 
 
     const closeModal = () => {
         setEditMode(false);
@@ -57,7 +58,13 @@ function PostIndexItem({ post }){
         {!isEditMode && (
             <div className="post-box"> 
                 <div className="post-name-and-menu">
+                    <div className="photo-and-name">
+                    {author?.photoUrl ? (
+                    <img className="profile-photo" src={author.photoUrl}/>
+                     ) : (<span className="profile-icon"><FaUserCircle /></span>
+                     )}
                     <span className="author-name">{author.firstName} {author.lastName}</span>
+                    </div>
                     <div className="post-body">{post.body}</div>
                 </div>
                 <div>
