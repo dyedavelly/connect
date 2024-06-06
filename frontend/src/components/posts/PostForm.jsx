@@ -4,6 +4,7 @@ import './PostForm.scss';
 import PostsIndex from './PostsIndex';
 import * as postActions from '../../store/posts';
 import * as userActions from '../../store/users';
+import { FaUserCircle } from 'react-icons/fa';
 
 function PostForm() {
     const dispatch = useDispatch();
@@ -32,7 +33,7 @@ function PostForm() {
                 <div className="post-box">
                 {author?.photoUrl ? (
                     <img className="start-post-profile-photo" src={author.photoUrl}/>
-                     ) : (<span className="profile-icon"><FaUserCircle /></span>
+                     ) : (<span className="start-post-profile-icon"><FaUserCircle /></span>
                      )}
                    <button className="start-post-button" onClick={openModal}>Start a post</button>
                 </div>
@@ -45,7 +46,7 @@ function PostForm() {
                             <span className="modal-header-name-photo">
                                 {author?.photoUrl ? (
                                 <img className="start-post-profile-photo" src={author.photoUrl}/>
-                                ) : (<span className="profile-icon"><FaUserCircle /></span>
+                                ) : (<span className="start-post-profile-icon"><FaUserCircle /></span>
                                 )}
                                 <span className="modal-name">{author.firstName} {author.lastName.charAt(0)}</span>
                             </span>

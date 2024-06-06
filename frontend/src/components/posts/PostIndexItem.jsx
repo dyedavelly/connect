@@ -66,7 +66,9 @@ function PostIndexItem({ post }){
                     <span className="author-name">{author.firstName} {author.lastName}</span>
                     </div>
                     <div className="post-body">{post.body}</div>
-                    <img className="post-image" src="" />
+                    {post?.imageUrl ? (
+                        <img className="post-image" src={post.imageUrl} />
+                    ) : null }   
                 </div>
                 <div>
                     {author.id === sessionUser && (

@@ -90,6 +90,8 @@ require "open-uri"
     )
 
 
+
+    user1.photo.attach(io: URI.open("https://connect-seeds.s3.amazonaws.com/demo-user.jpg"), filename: 'demo-user.jpg')
     user2.photo.attach(io: URI.open("https://connect-seeds.s3.amazonaws.com/dharani-yedavelly.jpeg"), filename: 'dharani-yedavelly.jpeg')
     user3.photo.attach(io: URI.open("https://connect-seeds.s3.amazonaws.com/raja-ankilla.jpg"), filename: 'raja-ankilla.jpg')
     user4.photo.attach(io: URI.open("https://connect-seeds.s3.amazonaws.com/mourya-yadavally.JPG"), filename: 'mourya-yadavally.jpg')
@@ -98,38 +100,45 @@ require "open-uri"
 
     puts "Creating posts..."
 
-    Post.create!({
-      body: 'Excited to announce the launch of our new product! Our team has worked tirelessly to innovate and deliver a solution that meets your needs. Join us at our virtual event next week to learn more',
+    post1 = Post.create!({
+      body: 'Join Our Team! We are hiring a passionate Software Developer! If you are skilled in JavaScript, React, and Node.js, and love solving complex problems, we want you! Apply now to be a part of our innovative and dynamic team',
       author_id: 1,
     })
-    Post.create!({
+    post2 = Post.create!({
       body: 'Excited to announce I have joined ABC Inc. as the new Director of Operations! Thrilled to work with an incredible team and drive impactful projects. Looking forward to contributing to our shared success and growth. Thank you for the warm welcome!',
       author_id: 1,
     })
-    Post.create!({
+    post3 = Post.create!({
       body: 'Thrilled to join the dynamic team at XYZ Corp. Looking forward to contributing to innovative projects and making a positive impact. Ready for the new challenges ahead!',
       author_id: 2,
     })
-    Post.create!({
+    post4 = Post.create!({
       body: 'Great insights and takeaways from today’s webinar on digital accessibility! Thanks to all who participated and contributed to the lively discussion. Lets continue to drive change together.',
       author_id: 3,
     })
-    Post.create!({
+    post5 = Post.create!({
       body: 'Proud to share that our team received the Best Innovation Award at the industry gala last night. This recognition is a testament to our hard work and dedication. Thank you to everyone who supported us!',
       author_id: 2,
     })
-    Post.create!({
+    post6 = Post.create!({
       body: 'Just published a new article on sustainable business practices. Exploring how companies can integrate eco-friendly strategies into their operations. Check it out and share your thoughts!',
       author_id: 4,
     })
-    Post.create!({
+    post7 = Post.create!({
       body: 'Networking at its best at the annual tech conference! Grateful for the inspiring conversations and new connections. Looking forward to leveraging these insights in our projects.',
       author_id: 5,
     })
-    Post.create!({
+    post8 = Post.create!({
       body: 'Celebrating 5 years at ABC Ltd. It has been an incredible journey filled with growth, learning, and achievements. Grateful for the support of my amazing colleagues and looking forward to many more milestones!',
       author_id: 5,
     })
+
+    post1.image.attach(io: URI.open("https://connect-seeds.s3.amazonaws.com/hiring-image.png"), filename: 'hiring-image.png')
+    post2.image.attach(io: URI.open("https://connect-seeds.s3.amazonaws.com/new-role-image.png"), filename: 'new-role-image.jpg')
+    post3.image.attach(io: URI.open("https://connect-seeds.s3.amazonaws.com/new-role-image.png"), filename: 'new-role-image.jpg')
+    post6.image.attach(io: URI.open("https://connect-seeds.s3.amazonaws.com/sustainable-practices.png"), filename: 'sustainable-practices.png')
+    post8.image.attach(io: URI.open("https://connect-seeds.s3.amazonaws.com/celebration-image.png"), filename: 'celebration-image.png')
+    
 
     puts "Done!"
   #end
