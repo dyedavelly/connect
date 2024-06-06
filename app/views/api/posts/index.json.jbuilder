@@ -5,6 +5,8 @@
          json.body post.body
          json.author_id post.author_id
          json.imageUrl post.image.attached? ? post.image.url : nil
+         json.createdAt post.created_at
+         json.updatedAt post.updated_at
       end
    end
    json.users do 
