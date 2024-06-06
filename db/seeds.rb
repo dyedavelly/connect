@@ -111,7 +111,7 @@ require "open-uri"
       author_id: 2,
     })
     Post.create!({
-      body: 'Great insights and takeaways from today’s webinar on digital transformation! Thanks to all who participated and contributed to the lively discussion. Lets continue to drive change together.',
+      body: 'Great insights and takeaways from today’s webinar on digital accessibility! Thanks to all who participated and contributed to the lively discussion. Lets continue to drive change together.',
       author_id: 3,
     })
     Post.create!({

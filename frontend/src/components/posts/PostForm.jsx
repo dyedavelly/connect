@@ -1,14 +1,18 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import './PostForm.scss';
 import PostsIndex from './PostsIndex';
 import * as postActions from '../../store/posts';
+import * as userActions from '../../store/users';
 
 function PostForm() {
     const dispatch = useDispatch();
+    const users = useSelector(userActions.selectUsersArray);
+    const sessionUser = useSelector(state => state.session.currentUserId);
+    const author = users.find(({ id }) => id === sessionUser);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [body, setBody] = useState("");
-
+    
     const openModal = () => {
         setIsModalOpen(true);
     };
@@ -26,6 +30,10 @@ function PostForm() {
         <>
             <div className="post-container">
                 <div className="post-box">
+                {author?.photoUrl ? (
+                    <img className="start-post-profile-photo" src={author.photoUrl}/>
+                     ) : (<span className="profile-icon"><FaUserCircle /></span>
+                     )}
                    <button className="start-post-button" onClick={openModal}>Start a post</button>
                 </div>
                 <PostsIndex/>
