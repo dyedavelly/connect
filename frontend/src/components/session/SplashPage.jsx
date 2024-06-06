@@ -44,7 +44,7 @@ function SplashPage() {
         <p className="home-page-heading">Welcome to your professional community</p>
         <div className="sign-in-container">
           <form onSubmit={handleSubmit}>
-            <ul>
+            <ul className='errors'>  
               {errors.map(error => <li key={error}>{error}</li>)}
             </ul>
             <label>Email</label>

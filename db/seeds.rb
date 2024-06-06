@@ -90,7 +90,10 @@ require "open-uri"
     )
 
 
-    user1.photo.attach(io: URI.open("https://connect-seeds.s3.amazonaws.com/dharani-yedavelly.jpeg"), filename: 'dharani-yedavelly.jpeg')
+    user2.photo.attach(io: URI.open("https://connect-seeds.s3.amazonaws.com/dharani-yedavelly.jpeg"), filename: 'dharani-yedavelly.jpeg')
+    user3.photo.attach(io: URI.open("https://connect-seeds.s3.amazonaws.com/raja-ankilla.jpg"), filename: 'raja-ankilla.jpg')
+    user4.photo.attach(io: URI.open("https://connect-seeds.s3.amazonaws.com/mourya-yadavally.JPG"), filename: 'mourya-yadavally.jpg')
+    user5.photo.attach(io: URI.open("https://connect-seeds.s3.amazonaws.com/pawan-kalyan.jpg"), filename: 'pawan-kalyan.jpg')
     
 
     puts "Creating posts..."
