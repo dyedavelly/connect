@@ -41,9 +41,22 @@ function PostForm() {
             {isModalOpen && (
                 <div className="modal-overlay">
                     <div className="modal">
-                        <button className="close-button" onClick={closeModal}>X</button>
+                        <div className="modal-header">
+                            <span className="modal-header-name-photo">
+                                {author?.photoUrl ? (
+                                <img className="start-post-profile-photo" src={author.photoUrl}/>
+                                ) : (<span className="profile-icon"><FaUserCircle /></span>
+                                )}
+                                <span className="modal-name">{author.firstName} {author.lastName.charAt(0)}</span>
+                            </span>
+                            <button className="close-button" onClick={closeModal}>X</button>
+                        </div>
                         <textarea placeholder="what do you want to talk about?" onChange={(e) => setBody(e.target.value)}></textarea>
+                        <div className="bottom-border"></div>
+                        <div className="modal-post-button">
                         <button onClick={createPost} className="post-submit-button">Post</button>
+                        </div>
+                       
                     </div>
                 </div>
             )}
