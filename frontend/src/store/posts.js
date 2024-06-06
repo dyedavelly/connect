@@ -1,4 +1,5 @@
 import csrfFetch from "./csrf.js";
+import { createSelector } from 'reselect';
 
 export const GET_POSTS = 'posts/GET_POSTS';
 export const GET_POST = 'posts/GET_POST';
@@ -21,8 +22,12 @@ const removePost = (postId) => ({
     postId
 });
 
+const selectPosts = (state) => state.posts || {}
 
-export const selectPostsArray = (state) => { return Object.values(state.posts || {}) }
+export const selectPostsArray = createSelector(
+    [selectPosts],
+    (posts) => Object.values(posts)
+);
 
 export const selectPost = (postId) => (state) => { return state.posts[postId] || null }
 

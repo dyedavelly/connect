@@ -1,8 +1,13 @@
 import { SET_CURRENT_USER } from './session.js';
 import { GET_POSTS } from './posts.js';
+import { createSelector } from 'reselect';
 
+const selectUsers = (state) => state.users || {};
 
-export const selectUsersArray = (state) => { return Object.values(state.users || {}) }
+export const selectUsersArray = createSelector(
+  [selectUsers],
+  (users) => Object.values(users)
+);
 
 const usersReducer = (state = {}, action) => {
     switch (action.type) {
