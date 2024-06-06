@@ -50,9 +50,9 @@
             width: 100px; 
             z-index: 1000;
         }
-          
-        .post-dropdown li {
-            padding: 5px;
+
+        .post-dropdown li:hover {
+            background-color: #f3f3f3;
         }
           
         .post-dropdown li button {
@@ -62,6 +62,9 @@
             text-align: left;
             padding: 10px;
             cursor: pointer;
+            color: darkslategray;
+            font-size: 1rem;
+            font-weight: 600;
         }
 
         .start-post-button {
