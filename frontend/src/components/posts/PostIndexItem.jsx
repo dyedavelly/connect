@@ -93,11 +93,23 @@ function PostIndexItem({ post }){
         )}
         {isEditMode && (
             <div className="modal-overlay">
-                <div className="modal">
-                    <button className="close-button" onClick={closeModal}>X</button>
-                    <textarea value={body} onChange={(e) => setBody(e.target.value)}></textarea>
-                    <button onClick={updatePost} className="post-submit-button">Save</button>
-                </div>
+                    <div className="modal">
+                        <div className="modal-header">
+                            <span className="modal-header-name-photo">
+                                {author?.photoUrl ? (
+                                <img className="start-post-profile-photo" src={author.photoUrl}/>
+                                ) : (<span className="start-post-profile-icon"><FaUserCircle /></span>
+                                )}
+                                <span className="modal-name">{author.firstName} {author.lastName.charAt(0)}</span>
+                            </span>
+                            <button className="close-button" onClick={closeModal}>X</button>
+                        </div>
+                        <textarea value={body} onChange={(e) => setBody(e.target.value)}></textarea>
+                        <div className="bottom-border"></div>
+                        <div className="modal-post-button">
+                        <button onClick={updatePost} className="post-submit-button">Save</button>
+                        </div>  
+                    </div>
             </div>
         )}
         </>
