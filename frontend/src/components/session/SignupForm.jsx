@@ -9,14 +9,22 @@ function SignupForm() {
   const sessionUser = useSelector(state => state.session.currentUserId);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [first_name, setFirstname] = useState("");
+  const [last_name, setLastname] = useState("");
+  const [nameScreen, setNameScreen] = useState(false);
   const [errors, setErrors] = useState([]);
 
   if (sessionUser) return <Navigate to="/feed" replace={true}/>;
 
+  const agreeButton = (e) => {
+       e.preventDefault();
+       setNameScreen(true);
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
       setErrors([]);
-      return dispatch(sessionActions.signup({ email, password }))
+      return dispatch(sessionActions.signup({ email, password, first_name, last_name }))
         .catch(async (res) => {
         let data;
         try {
@@ -36,10 +44,12 @@ function SignupForm() {
      <p className="main-title">Make the most your professional life</p>
       <div className="container">
       <div className="signup-box">
-        <form onSubmit={handleSubmit}>
           <ul className="errors">
             {errors.map(error => <li key={error}>{error}</li>)}
           </ul>
+         {!nameScreen && ( 
+          <>
+          <form onSubmit={agreeButton}>
           <label>Email</label>
           <input type="text" className="input-field" value={email} onChange={(e) => setEmail(e.target.value)} required/>
           <label>Password (6+ characters) </label>
@@ -50,6 +60,17 @@ function SignupForm() {
           <button type="submit" className="sign-up-button">Agree & Join</button>
         </form>
         <p className="sign-in">Already on connect? <Link to={"/login"}>Sign in</Link></p>
+        </>
+         )} 
+          {nameScreen && ( 
+          <form onSubmit={handleSubmit}>
+          <label>First name</label>
+          <input type="text" className="input-field" value={first_name} onChange={(e) => setFirstname(e.target.value)} required/>
+          <label>Last name</label>
+          <input type="text" className="input-field" value={last_name} onChange={(e) => setLastname(e.target.value)} required/>
+          <button type="submit" className="sign-up-button">Continue</button>
+        </form>
+         )} 
       </div>
     </div> 
     
