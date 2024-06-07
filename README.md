@@ -10,27 +10,27 @@ Connect is a full-stack web application designed to emulate the LinkedIn experie
 ## Technologies used
 
 ### Languages
-- **Javascript:** 
-- **Ruby:** 
-- **HTML:** 
-- **SCSS:** 
+- **Javascript** 
+- **Ruby** 
+- **HTML** 
+- **SCSS** 
 
 ### Backend
-- **Ruby on Rails:** 
+- **Ruby on Rails** 
 
 ### Database
-- **PostgreSQL:**
+- **PostgreSQL**
 
 ### Frontend
-- **React.js:** 
-- **Redux:**
-- **NPM:** 
+- **React.js** 
+- **Redux**
+- **NPM** 
 
 ### Storage
-- **AWS S3:** 
+- **AWS S3** 
 
 ### Hosting
-- **Render:**
+- **Render**
 
 ## Key Features
 
