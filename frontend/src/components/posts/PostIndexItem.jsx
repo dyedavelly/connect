@@ -73,19 +73,19 @@ function PostIndexItem({ post }){
                 <div>
                     {author.id === sessionUser && (
                             <>
-                                {!showMenu && (
-                                    <button onClick={toggleMenu} className="horizontal-menu"><FiMoreHorizontal /></button>
-                                )}
-                                {showMenu && (
-                                    <ul className="post-dropdown" ref={dropdownRef}>
-                                        <li>
-                                            <button onClick={editPost}>Edit</button>
-                                        </li>
-                                        <li>
-                                            <button onClick={deletePost}>Delete</button>
-                                        </li>
-                                    </ul>
-                                )}
+                            {!showMenu && (
+                                <button onClick={toggleMenu} className="horizontal-menu"><FiMoreHorizontal /></button>
+                            )}
+                            {showMenu && (
+                                <ul className="post-dropdown" ref={dropdownRef}>
+                                    <li>
+                                        <button onClick={editPost}>Edit</button>
+                                    </li>
+                                    <li>
+                                        <button onClick={deletePost}>Delete</button>
+                                    </li>
+                                </ul>
+                            )}
                             </>
                         )}
                 </div>

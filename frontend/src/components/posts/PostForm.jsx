@@ -56,8 +56,7 @@ function PostForm() {
                         <div className="bottom-border"></div>
                         <div className="modal-post-button">
                         <button onClick={createPost} className="post-submit-button">Post</button>
-                        </div>
-                       
+                        </div> 
                     </div>
                 </div>
             )}
