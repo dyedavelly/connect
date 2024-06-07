@@ -50,9 +50,20 @@ Connect is a full-stack web application designed to emulate the LinkedIn experie
 
 
 ### POSTS
-- On the feed page, logged in users can create a post.
-- User can update/delete their own POSTS.
-- User can view other's posts but cannot make changes to their POSTS.
+
+#### 1. View Posts
+- After a user is logged-in, he can view all his posts and also posts posted by other users.
+
+#### 2. Create Post
+- User can create a POST after he is logged-in.
+
+#### 3. Edit/Update Post
+- User can edit/update his post.
+- User will not have an option to edit other user's posts.
+
+#### 4. Delete Post
+- User can delete his post.
+- User will not have an option to delete other user's posts.
 
 
 ## Code Snippets
