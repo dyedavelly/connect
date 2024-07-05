@@ -1,5 +1,6 @@
 import csrfFetch from "./csrf.js";
 import { createSelector } from 'reselect';
+import { getComments } from "./comments.js";
 
 export const GET_POSTS = 'posts/GET_POSTS';
 export const GET_POST = 'posts/GET_POST';
@@ -37,6 +38,7 @@ export const fetchPosts = () => async (dispatch) => {
     if (response.ok) {
         const data = await response.json();
         dispatch(getPosts(data));
+        dispatch(getComments(data));
         return data;  // Return the fetched data
     } else {
         console.error('Failed to fetch posts:', response.statusText);

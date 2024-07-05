@@ -9,6 +9,7 @@ function PostsIndex() {
     
     const dispatch = useDispatch();
     const posts = useSelector(postActions.selectPostsArray);
+   
 
     useEffect(() => {
         dispatch(postActions.fetchPosts());

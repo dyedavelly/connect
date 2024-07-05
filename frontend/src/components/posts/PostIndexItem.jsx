@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect, useRef } from 'react';
 import * as userActions from '../../store/users';
+import * as commentActions from '../../store/comments';
 import { FiMoreHorizontal } from "react-icons/fi";
 import * as postActions from '../../store/posts';
 import { FaUserCircle } from 'react-icons/fa';
@@ -8,6 +9,7 @@ import { FaUserCircle } from 'react-icons/fa';
 function PostIndexItem({ post }){
     const dispatch = useDispatch();
     const users = useSelector(userActions.selectUsersArray);
+    const comments = useSelector(commentActions.selectCommentsArray);
     const [showMenu, setShowMenu] = useState(false);
     const [isEditMode, setEditMode] = useState(false);
     const [body, setBody] = useState(post.body);
@@ -69,7 +71,8 @@ function PostIndexItem({ post }){
                     {post?.imageUrl ? (
                         <img className="post-image" src={post.imageUrl} />
                     ) : null }   
-                </div>
+                   </div>
+                   {/* <div className="post-comment">Comment</div> */}
                 <div>
                     {author.id === sessionUser && (
                             <>

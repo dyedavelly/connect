@@ -11,6 +11,7 @@ require "open-uri"
 #ApplicationRecord.transaction do 
     puts "Destroying tables..."
     # Unnecessary if using `rails db:seed:replant`
+    Comment.destroy_all
     Post.destroy_all
     User.destroy_all
    
@@ -19,6 +20,7 @@ require "open-uri"
     # For easy testing, so that after seeding, the first `User` has `id` of 1
     ApplicationRecord.connection.reset_pk_sequence!('users')
     ApplicationRecord.connection.reset_pk_sequence!('posts')
+    ApplicationRecord.connection.reset_pk_sequence!('comments')
   
     puts "Creating users..."
     # Create one user with an easy to remember username, email, and password:
@@ -139,6 +141,24 @@ require "open-uri"
     post6.image.attach(io: URI.open("https://connect-seeds.s3.amazonaws.com/sustainable-practices.png"), filename: 'sustainable-practices.png')
     post8.image.attach(io: URI.open("https://connect-seeds.s3.amazonaws.com/celebration-image.png"), filename: 'celebration-image.png')
     
+    puts "Creating comments..."
+    comment1 = Comment.create!({
+      body: 'I am intrested',
+      author_id: 2,
+      post_id: 1
+    })
+
+    comment2 = Comment.create!({
+      body: 'Congratulations!',
+      author_id: 3,
+      post_id: 2
+    })
+
+    comment3 = Comment.create!({
+      body: 'Congratulations!',
+      author_id: 4,
+      post_id: 2
+    })
 
     puts "Done!"
   #end
