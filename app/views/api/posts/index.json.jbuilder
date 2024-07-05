@@ -17,3 +17,13 @@
       end
    end
 end
+@comments.each do |comment|
+   json.comments do
+      json.set! comment.id do 
+         json.id comment.id
+         json.body comment.body
+         json.post_id comment.post_id
+         json.author_id comment.author_id
+      end
+   end
+end

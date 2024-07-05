@@ -8,6 +8,8 @@
 #  session_token   :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  first_name      :string           not null
+#  last_name       :string           not null
 #
 class User < ApplicationRecord
     has_secure_password
@@ -23,6 +25,11 @@ class User < ApplicationRecord
         primary_key: :id,
         foreign_key: :author_id,
         class_name: :Post
+
+    has_many :comments,
+        primary_key: :id,
+        foreign_key: :author_id,
+        class_name: :Comment
 
     def self.find_by_credentials(email, password)
         user = User.find_by(email: email)
